@@ -10,229 +10,148 @@
 
 This repository serves as a practical guide through various web services and server technologies. Each lesson is organized in dedicated folders containing both source code and visual outputs.
 
-## 🗓️ Latest Session: JavaScript Array Operations & Advanced Concepts (March 17, 2025)
+## 🗓️ Latest Session: JavaScript Functions & Programming Concepts (March 19, 2025)
 
 ### 🎯 Learning Objectives
 
-- Master array manipulation using push and pop operations
-- Implement array traversal using forEach loops
-- Develop algorithms for array comparison and analysis
-- Find common elements between arrays
-- Understand nested array operations
-- Learn JSON object manipulation
-- Practice array reversal techniques
-- Implement array frequency analysis
-- Find pairs that sum to a target value
-- Analyze element frequency in arrays
+- Master arrow function syntax and usage
+- Implement callback functions effectively
+- Understand function parameters (default and rest)
+- Create recursive functions
+- Build practical function implementations
+- Practice boolean function logic
+- Develop mathematical operations using functions
 
 ### 💻 Code Examples & Implementations
 
-#### 1. Basic Array Operations
+#### 1. Arrow Functions
 
-##### Array Push and Pop (`Arrayoperationspushpop.js`)
+##### Basic Arrow Function (`arrowfunction.js`)
 ```javascript
-//Array operations
-//push pop
-arr3 = ['a','b','d'];
-console.log(arr3);
-arr3.push('e');
-console.log(arr3);
-arr3.pop();
-console.log(arr3);
+let sum = (a, b) => a + b;
+console.log(sum(5, 3));
 ```
-[View Output](outputs/Arrayoperationspushpop.png)
+[View Output](Output/arrowfunction.png)
 
-##### Array Initialization and Access (`printarray.js`)
+##### Arrow Function with Multiple Parameters (`arrowfunctiontosum2numbers.js`)
 ```javascript
-//Array
-//functio
-let name = []; //array initialization
-let score = [84, 92, 75, 68, 55, 95, 66, 89, 87, 74]; //array declaration
-//accessing array element
-console.log(score[0]);
-```
-[View Output](outputs/printarray.png)
-
-#### 2. Array Traversal Techniques
-
-##### Using For Loop (`printarrayusingforloop.js`)
-```javascript
-let score = [84, 92, 75, 68, 55, 95, 66, 89, 87, 74];
-for(let i=0;i< score.length;i++)
-{
-    console.log(score[i]);
-}
-```
-[View Output](outputs/printarrayusingforloop.png)
-
-##### Using forEach Loop (`printarrayusingforeachloop.js`)
-```javascript
-let score = [84, 92, 75, 68, 55, 95, 66, 89, 87, 74];
-score.forEach((n)=>{
-    console.log(n);
-})
-```
-[View Output](outputs/printarrayusingforeachloop.png)
-
-#### 3. Advanced Array Operations
-
-##### Finding Maximum Number (`findmaxnumberinthearrayusingforeachloop.js`)
-```javascript
-//find max number in the array using foreach loop
-let score = [84, 92, 75, 68, 55, 95, 66, 89, 87, 74];
-let max = score[0];
-score.forEach((n)=>{
-    if(n>max)
-    {
-        max = n;
-    }
-});
-console.log("Maximum number in the array is: " + max);
-```
-[View Output](outputs/findmaxnumberinthearrayusingforeachloop.png)
-
-##### Finding Common Elements (`findthecommonelementsbetweentwoarrays.js`)
-```javascript
-// Define the arrays
-let a = [4, 5, 6, 3, 7];
-let b = [8, 3, 2, 1, 5];
-
-// Array to store common elements
-let commonElements = [];
-
-// Use forEach to find common elements
-a.forEach(element => {
-    if(b.includes(element)) {
-        commonElements.push(element);
-    }
-});
-
-// Display the result
-console.log("Common elements between arrays:", commonElements);
-```
-[View Output](outputs/findthecommonelementsbetweentwoarrays.png)
-
-##### Nested Array Operations (`printthenestedarray.js`)
-```javascript
-// Print nested array using forEach loop
-let nestedArray = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
-nestedArray.forEach((n) => {
-  n.forEach((m) => {
-    console.log(m);
-  });
-});
-```
-[View Output](outputs/printthenestedarray.png)
-
-##### Array Reversal (`reversethearrayusingpushpop.js`)
-```javascript
-//reverse the array using push and pop
-// a b c d -> d c b a
-let arr = ['a','b','c','d'];
-let arr2 = [];
-
-while(arr.length > 0) {
-    arr2.push(arr.pop());
-}
-
-console.log(arr2);
-```
-[View Output](outputs/reversethearrayusingpushpop.png)
-
-#### 4. Array Analysis and Algorithms
-
-##### Finding Pairs with Target Sum (`findingpairsinanarraythatsumuptoatargetvalue.js`)
-```javascript
-// Example array and target
-let arr = [1, 2, 3, 4, 5, 6];
-let target = 7;
-
-// Function to find pairs that sum up to target using forEach
-function findPairs(arr, target) {
-    let pairs = [];
-    
-    // Use forEach to iterate through each number
-    arr.forEach((num1, index) => {
-        // Only check numbers after the current number to avoid duplicates
-        arr.slice(index + 1).forEach(num2 => {
-            // If pair sums to target, add to results
-            if(num1 + num2 === target) {
-                pairs.push([num1, num2]);
-            }
-        });
-    });
-    
-    return pairs;
-}
-```
-[View Output](outputs/findingpairsinanarraythatsumuptoatargetvalue.png)
-
-##### Finding Most Frequent Element (`findthemostfrequentelementinthearray.js`)
-```javascript
-const numbers = [4,8,3,4,3,2,1,8,4];
-
-// Create a Map to store frequency
-const numberCount = new Map();
-
-// Count frequency of each number
-numbers.forEach(number => {
-    const currentCount = numberCount.get(number) || 0;
-    numberCount.set(number, currentCount + 1);
-});
-
-// Find the most frequent number
-let highestCount = 0;
-let mostCommonNumber = null;
-
-numberCount.forEach((count, number) => {
-    if (count > highestCount) {
-        highestCount = count;
-        mostCommonNumber = number;
-    }
-});
-```
-[View Output](outputs/findthemostfrequentelementinthearray.png)
-
-#### 5. JSON Operations and Data Analysis
-
-##### Basic JSON Structure (`JSON.js`)
-```javascript
-//JSON
-//{key:value}
-let student = {
-    name: "John",
-    age: 20,
-    marks: 90,
-    isPassed: true,
-    address: {
-        street: "123 Main St",
-        city: "Anytown"
-    }
+let sum = (a, b) => {
+    return a + b;
 };
+console.log(sum(10, 20));
 ```
-[View Output](outputs/JSON.png)
+[View Output](Output/arrowfunctiontosum2numbers.png)
+
+#### 2. Function Parameters
+
+##### Default and Rest Parameters (`defaultandrestparameter.js`)
+```javascript
+function sum(a, b = 10) {
+    return a + b;
+}
+console.log(sum(5));
+```
+[View Output](Output/defaultandrestparameter.png)
+
+##### ForEach with Rest Parameters (`foreachrestparameter.js`)
+```javascript
+function printNumbers(...numbers) {
+    numbers.forEach(number => console.log(number));
+}
+printNumbers(1, 2, 3, 4, 5);
+```
+[View Output](Output/foreachrestparameter.png)
+
+#### 3. Basic Function Operations
+
+##### Print Message Function (`functionprintmsg.js`)
+```javascript
+function printMessage(msg) {
+    console.log(msg);
+}
+printMessage("Hello World");
+```
+[View Output](Output/functionprintmsg.png)
+
+##### Addition Function (`functionsum.js`)
+```javascript
+function sum(a, b) {
+    return a + b;
+}
+console.log(sum(5, 3));
+```
+[View Output](Output/functionsum.png)
+
+##### Subtraction Function (`functionsub.js`)
+```javascript
+function subtract(a, b) {
+    return a - b;
+}
+console.log(subtract(10, 5));
+```
+[View Output](Output/functionsub.png)
+
+#### 4. Advanced Function Concepts
+
+##### Callback Function (`callbackfunction.js`)
+```javascript
+function greet(name, callback) {
+    console.log('Hi' + ' ' + name);
+    callback();
+}
+
+function callMe() {
+    console.log('I am callback function');
+}
+
+greet('Peter', callMe);
+```
+[View Output](Output/callbackfunction.png)
+
+##### Recursive Function (`recursivefunctiontoprintnumbers.js`)
+```javascript
+function printNumbers(n) {
+    if(n > 0) {
+        console.log(n);
+        printNumbers(n - 1);
+    }
+}
+printNumbers(5);
+```
+[View Output](Output/recursivefunctiontoprintnumbers.png)
+
+##### Boolean Function (`booleanfunctiontofindgivennumberprime.js`)
+```javascript
+function isPrime(number) {
+    if (number <= 1) return false;
+    for(let i = 2; i <= Math.sqrt(number); i++) {
+        if(number % i === 0) return false;
+    }
+    return true;
+}
+console.log(isPrime(17));
+```
+[View Output](Output/booleanfunctiontofindgivennumberprime.png)
 
 ### 📊 Implementation Summary
 
 | Category | File | Description | Output |
 |----------|------|-------------|--------|
-| Basic Array Operations | `Arrayoperationspushpop.js` | Basic array push/pop operations | [View](outputs/Arrayoperationspushpop.png) |
-| Basic Array Operations | `printarray.js` | Array initialization and access | [View](outputs/printarray.png) |
-| Array Traversal | `printarrayusingforloop.js` | Array traversal using for loop | [View](outputs/printarrayusingforloop.png) |
-| Array Traversal | `printarrayusingforeachloop.js` | Array traversal using forEach | [View](outputs/printarrayusingforeachloop.png) |
-| Array Analysis | `findmaxnumberinthearrayusingforeachloop.js` | Finding maximum value using forEach | [View](outputs/findmaxnumberinthearrayusingforeachloop.png) |
-| Array Comparison | `findthecommonelementsbetweentwoarrays.js` | Finding common elements between arrays | [View](outputs/findthecommonelementsbetweentwoarrays.png) |
-| Nested Arrays | `printthenestedarray.js` | Nested array traversal using forEach | [View](outputs/printthenestedarray.png) |
-| Array Manipulation | `reversethearrayusingpushpop.js` | Array reversal using push/pop | [View](outputs/reversethearrayusingpushpop.png) |
-| Array Algorithms | `findingpairsinanarraythatsumuptoatargetvalue.js` | Finding pairs that sum to target | [View](outputs/findingpairsinanarraythatsumuptoatargetvalue.png) |
-| Array Analysis | `findthemostfrequentelementinthearray.js` | Finding most frequent element | [View](outputs/findthemostfrequentelementinthearray.png) |
-| JSON Operations | `JSON.js` | JSON object manipulation | [View](outputs/JSON.png) |
-| Student Data Analysis | `homework.js` | Student data filtering and GPA analysis | [View](outputs/homework.png) |
+| Arrow Functions | `arrowfunction.js` | Basic arrow function implementation | [View](Output/arrowfunction.png) |
+| Arrow Functions | `arrowfunctiontosum2numbers.js` | Arrow function with multiple parameters | [View](Output/arrowfunctiontosum2numbers.png) |
+| Function Parameters | `defaultandrestparameter.js` | Default and rest parameter usage | [View](Output/defaultandrestparameter.png) |
+| Function Parameters | `foreachrestparameter.js` | ForEach with rest parameters | [View](Output/foreachrestparameter.png) |
+| Basic Operations | `functionprintmsg.js` | Simple message printing function | [View](Output/functionprintmsg.png) |
+| Basic Operations | `functionsum.js` | Addition function | [View](Output/functionsum.png) |
+| Basic Operations | `functionsub.js` | Subtraction function | [View](Output/functionsub.png) |
+| Advanced Concepts | `callbackfunction.js` | Callback function demonstration | [View](Output/callbackfunction.png) |
+| Advanced Concepts | `recursivefunctiontoprintnumbers.js` | Recursive function implementation | [View](Output/recursivefunctiontoprintnumbers.png) |
+| Advanced Concepts | `booleanfunctiontofindgivennumberprime.js` | Prime number checker function | [View](Output/booleanfunctiontofindgivennumberprime.png) |
 
 ### 🔍 Technical Notes
 
 - All implementations are in pure JavaScript
-- Extensive use of ES6+ array methods
+- Extensive use of ES6+ function syntax
 - Each example includes comprehensive console output
 - Visual outputs are captured for reference
 - Consistent code formatting and naming conventions
